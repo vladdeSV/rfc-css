@@ -1,0 +1,304 @@
+/* document */
+
+[data-rfc] {
+  font-family: monospace;
+  max-width: 72ch;
+  font-size: 10pt;
+  margin: 0 0 0 4em;
+  box-sizing: border-box;
+  line-height: 15px;
+
+  --rfc-content-indentation: 3ch;
+  --rfc-term-width: 12ch;
+  --rfc-heading-spacing: 1ch;
+}
+
+/* screen is less than 600 px  remove margin */
+@media (max-width: 600px) {
+  [data-rfc] {
+    margin: 0 2ch;
+  }
+}
+
+
+@media print {
+  [data-rfc] {
+    margin: 0;
+  }
+}
+
+/* heading styles */
+[data-rfc] :is(h1, h2, h3, h4, h5, h6) {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+
+  margin: 15px 0;
+}
+
+[data-rfc] h1 {
+  text-align: center;
+}
+
+[data-rfc] h6 {
+  font-weight: normal;
+}
+
+/* common elements */
+[data-rfc] :is(p, dl, pre, figure, section) {
+  margin: 0;
+  margin-bottom: 15px;
+  margin-left: var(--rfc-content-indentation);
+}
+
+[data-rfc] a {
+  white-space: nowrap;
+}
+
+[data-rfc] li {
+  margin-bottom: 15px;
+}
+
+[data-rfc] li>p {
+  margin-left: 0;
+}
+
+[data-rfc] blockquote {
+  margin: 0;
+  padding-left: 2ch;
+}
+
+[data-rfc] blockquote p {
+  text-indent: -2ch;
+}
+
+[data-rfc] blockquote p::before {
+  content: "> ";
+}
+
+[data-rfc] :is(ul, ol),
+[data-rfc] pre:has(code) {
+  margin: 0;
+  margin-bottom: 15px;
+  padding-left: 6ch;
+}
+
+[data-rfc] pre code {
+  white-space: pre-wrap;
+}
+
+[data-rfc] ul li::marker {
+  content: 'o  ';
+  white-space: pre;
+}
+
+[data-rfc] input {
+  height: 15px;
+  margin: 0;
+  vertical-align: middle;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+
+[data-rfc] input[type=checkbox] {
+  width: 1ch;
+}
+
+[data-rfc] [data-rfc-list-compact]:is(ul, ol) li {
+  margin-bottom: 0;
+}
+
+/* heading counter */
+
+[data-rfc] h1 {
+  counter-reset: rfc-h2 rfc-h3 rfc-h4 rfc-h5 rfc-h6;
+}
+
+[data-rfc] h2 {
+  counter-increment: rfc-h2;
+  counter-reset: rfc-h3 rfc-h4 rfc-h5 rfc-h6;
+}
+
+[data-rfc] h3 {
+  counter-increment: rfc-h3;
+  counter-reset: rfc-h4 rfc-h5 rfc-h6;
+}
+
+[data-rfc] h4 {
+  counter-increment: rfc-h4;
+  counter-reset: rfc-h5 rfc-h6;
+}
+
+[data-rfc] h5 {
+  counter-increment: rfc-h5;
+  counter-reset: rfc-h6;
+}
+
+[data-rfc] h6 {
+  counter-increment: rfc-h6;
+}
+
+[data-rfc] h2::before {
+  content: counter(rfc-h2) ".";
+}
+
+[data-rfc] h3::before {
+  content: counter(rfc-h2) "." counter(rfc-h3) ".";
+}
+
+[data-rfc] h4::before {
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) ".";
+}
+
+[data-rfc] h5::before {
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) ".";
+}
+
+[data-rfc] h6::before {
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) "." counter(rfc-h6) ".";
+}
+
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)::before {
+  padding-right: var(--rfc-heading-spacing);
+}
+
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain],
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: normal;
+  counter-increment: unset;
+  counter-reset: unset;
+}
+
+[data-rfc] :is( :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain],
+  :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6))::before {
+  content: none;
+}
+
+/* description list */
+[data-rfc] dl {
+  margin-left: calc(var(--rfc-content-indentation) * 2);
+}
+
+[data-rfc] dl>div {
+  overflow: auto;
+}
+
+[data-rfc] dl>div>dt {
+  float: left;
+  margin-right: 1ch;
+}
+
+[data-rfc] dl>div>dd {
+  float: right;
+  margin: 0;
+  width: calc(100% - var(--rfc-term-width));
+  padding-bottom: 15px;
+  clear: right;
+}
+
+[data-rfc] dl>div>dd::after {
+  content: "\a";
+  white-space: pre;
+}
+
+/* workaround for unwrapped dt/dd's */
+[data-rfc] dl>dd {
+  margin-left: var(--rfc-term-width);
+  padding-bottom: 15px;
+}
+
+/* navigation */
+
+[data-rfc] nav {
+  text-align: right;
+  background-color: #eee;
+  padding-bottom: 15px;
+}
+
+[data-rfc] nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em 1ch;
+  padding-left: 0;
+  text-align: left;
+}
+
+[data-rfc] nav ul li {
+  margin-bottom: 0;
+}
+
+[data-rfc] nav ul li::marker {
+  content: unset;
+}
+
+[data-rfc] nav ul li::before {
+  content: '[';
+}
+
+[data-rfc] nav ul li::after {
+  content: ']';
+}
+
+/* do not show when printing */
+@media print {
+  [data-rfc] nav {
+    display: none;
+  }
+
+}
+
+/* misc */
+
+/* images */
+[data-rfc] img {
+  max-width: 100%;
+}
+
+[data-rfc] figcaption {
+  text-align: center;
+}
+
+/* keep whitespace */
+[data-rfc-ws] p {
+  white-space: pre-wrap;
+}
+
+/* header */
+[data-rfc] header {
+  margin-bottom: 30px;
+}
+
+[data-rfc] header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+[data-rfc] header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+[data-rfc] header ul:nth-of-type(2) {
+  text-align: right;
+}
+
+[data-rfc] header ul li {
+  margin: 0;
+}
+
+[data-rfc] header ul li::marker {
+  content: unset;
+}
+
+/* title hack */
+[data-rfc] :is(h1, h2, h3, h4, h5, h6):has(+ :is(h1, h2, h3, h4, h5, h6)) {
+  display: none;
+}
+
+[data-rfc] :is(h1, h2, h3, h4, h5, h6) :is(h1, h2, h3, h4, h5, h6) {
+  display: none;
+}
