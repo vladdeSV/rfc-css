@@ -60,10 +60,6 @@
   white-space: nowrap;
 }
 
-[data-rfc] li {
-  margin-bottom: 15px;
-}
-
 [data-rfc] li>p {
   margin-left: 0;
 }
@@ -107,10 +103,6 @@
 
 [data-rfc] input[type=checkbox] {
   width: 1ch;
-}
-
-[data-rfc] [data-rfc-list-compact]:is(ul, ol) li {
-  margin-bottom: 0;
 }
 
 /* heading counter */
