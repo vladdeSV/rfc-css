@@ -54,8 +54,17 @@
       content: unset;
     }
 
-    :root:has(input[type=checkbox][name=dark-mode]:checked) {
-      color-scheme: dark;
+    :root:has(input[type=checkbox][name=extra]:checked) [data-rfc] pre {
+      /* border-radius: 0.5ch; */
+      --pre-padding: 1ch;
+      background-color: field;
+      display: inline-block;
+      outline: 1px solid currentcolor;
+      margin-top: calc(-1 * var(--pre-padding));
+      margin-bottom: calc(-1 * var(--pre-padding));
+      margin-left: calc(var(--rfc-content-indentation) * 2 - var(--pre-padding));
+      margin-right: calc(-1 * var(--pre-padding));
+      padding: var(--pre-padding);
     }
 
     :root:has(input[type=checkbox][name=dark-mode]:checked) [data-rfc] nav {
