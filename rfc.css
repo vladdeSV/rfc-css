@@ -25,6 +25,11 @@
   [data-rfc] {
     margin: 0;
   }
+
+  a {
+    color: currentcolor;
+    text-decoration: none;
+  }
 }
 
 /* heading styles */
