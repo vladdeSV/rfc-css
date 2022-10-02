@@ -159,15 +159,13 @@
   padding-right: var(--rfc-heading-spacing);
 }
 
-[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain],
-[data-rfc] :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6) {
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain] {
   font-weight: normal;
   counter-increment: unset;
   counter-reset: unset;
 }
 
-[data-rfc] :is( :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain],
-  :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6))::before {
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain]::before {
   content: none;
 }
 
