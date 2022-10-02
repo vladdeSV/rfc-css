@@ -51,7 +51,7 @@
 }
 
 /* common elements */
-[data-rfc] :is(p, dl, pre, figure, section) {
+[data-rfc] :is(p, dl, pre, figure, section, ul, ol) {
   margin: 15px 0;
   margin-left: var(--rfc-content-indentation);
 }
@@ -77,11 +77,12 @@
   content: "> ";
 }
 
-[data-rfc] :is(ul, ol),
-[data-rfc] pre:has(code) {
-  margin: 0;
-  margin-bottom: 15px;
-  padding-left: 6ch;
+[data-rfc] :is(ul, ol) {
+  padding-left: var(--rfc-content-indentation)
+}
+
+[data-rfc] pre {
+  margin-left: calc(var(--rfc-content-indentation) * 2);
 }
 
 [data-rfc] pre code {
@@ -216,6 +217,8 @@
   flex-wrap: wrap;
   gap: 1em 1ch;
   padding-left: 0;
+  margin: 0;
+  margin-bottom: 15px;
   text-align: left;
 }
 
@@ -302,5 +305,22 @@
 [data-rfc] :is(h1, h2, h3, h4, h5, h6):empty+ :is(h1, h2, h3, h4, h5, h6)::before {
   content: none;
 }
+
+/* table of content */
+[data-rfc] aside[data-rfc-toc] {
+  margin-left: var(--rfc-content-indentation);
+}
+
+[data-rfc] aside[data-rfc-toc]:empty {
   display: none;
+}
+
+[data-rfc] aside[data-rfc-toc]+:is(h1, h2, h3, h4, h5, h6) {
+  counter-reset: rfc-h2 rfc-h3 rfc-h4 rfc-h5 rfc-h6;
+}
+
+[data-rfc] aside[data-rfc-toc] :is(h1, h2, h3, h4, h5, h6) {
+  text-align: unset;
+  margin: 0;
+  font-weight: normal;
 }
