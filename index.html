@@ -67,6 +67,12 @@
       padding: var(--pre-padding);
     }
 
+    @media not print {
+      :root:has(input[type=checkbox][name=dark-mode]:checked) {
+        color-scheme: dark;
+      }
+    }
+
     :root:has(input[type=checkbox][name=dark-mode]:checked) [data-rfc] nav {
       background-color: #222;
     }
