@@ -141,5 +141,7 @@ For instance, that note was written as
 ## Why
 
 - serious documentation at work
+
 - common markdown to html feel lacking – unprofessional
+
 - i like rfc documents, focus is entirely on content
