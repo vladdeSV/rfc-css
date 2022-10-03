@@ -58,13 +58,13 @@ Some features can be modified with custom css rules. because css rules are scope
 My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
 
 <dl>
-  <dt>--rfc-content-indentation</dt>
+  <dt><code>--rfc-content-indentation</code></dt>
   <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
 
-  <dt>--rfc-term-width</dt>
+  <dt><code>--rfc-term-width</code></dt>
   <dd>Minimum width of terms in description lists.</dd>
 
-  <dt>--rfc-heading-spacing</dt>
+  <dt><code>--rfc-heading-spacing</code></dt>
   <dd>Spacing between the heading and the numbering of the heading.</dd>
 </dl>
 
@@ -95,14 +95,14 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
     function setCustomHeadingSpacing(spacing) {
       const style = '--rfc-heading-spacing: ' + spacing + 'ch;'
       document.getElementById('headings').style = style
-      document.querySelector('output[name=heading-spacing]').textContent = style
+      document.querySelector('output[name=heading-spacing]').innerHTML = `<code>${style}</code>`
     }
   </script>
   <strong>Demo</strong>:
   <label>interactive heading numbering spacing:<br>
     <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
   </label>
-  <output name=heading-spacing>--rfc-heading-spacing: 1ch;</output>
+  <output name=heading-spacing><code>--rfc-heading-spacing: 1ch;</code></output>
 </p>
 
 
