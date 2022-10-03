@@ -37,9 +37,9 @@ If you ever wonder what the underlying HTML looks like, feel free to at any poin
 
 Before reading on, please take a moment to set your preferences. Your browser must support the CSS function \`:has(…)\`.</p>
 
-<p><label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label></p>
-<p><label><input type=checkbox name=justify> <code>text-align: justify;</code></label></p>
-<p><label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label></p>
+<label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
+<label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
+<label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
 
 Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
 
@@ -49,11 +49,6 @@ Settings like these do not exist even in the HTML versions of RFCs, but they are
 > Eat your own dog food ([explanation](dogfooding))
 
 This entire document both explains and shows RFC-CSS. Everything is written in Markdown and converted to HTML.
-
-- auto number headings
-- lists (unordered, ordered)
-- description lists
-- block quotes
 
 [dogfooding]: https://en.wiktionary.org/wiki/eat_one%27s_own_dog_food
 
@@ -67,7 +62,7 @@ My suggestion is to set these variables globally to ensure a consisten looking d
   <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
 
   <dt>--rfc-term-width</dt>
-  <dd>Width of terms in description lists, like this one.</dd>
+  <dd>Minimum width of terms in description lists.</dd>
 
   <dt>--rfc-heading-spacing</dt>
   <dd>Spacing between the heading and the numbering of the heading.</dd>
@@ -87,7 +82,6 @@ or directly inline html
 ```
 
 ### Headings
-
 All headings are bold and not indented. The main title `h1` is centered. Headings `h2` to `h6` are automatically numbered.
 
 Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbers.
