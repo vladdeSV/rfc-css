@@ -61,9 +61,17 @@ This entire document both explains and shows RFC-CSS. Everything is written in M
 Some features can be modified with custom css rules. because css rules are scoped we could theoreticall change them per document, or per element.
 
 My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
-- `--rfc-content-indentation`
-- `--rfc-term-width`
-- `--rfc-heading-spacing`
+
+<dl>
+  <dt>--rfc-content-indentation</dt>
+  <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
+
+  <dt>--rfc-term-width</dt>
+  <dd>Width of terms in description lists, like this one.</dd>
+
+  <dt>--rfc-heading-spacing</dt>
+  <dd>Spacing between the heading and the numbering of the heading.</dd>
+</dl>
 
 you would apply these rules with CSS like so:
 ```css
