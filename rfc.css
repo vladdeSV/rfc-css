@@ -89,6 +89,10 @@
   white-space: pre-wrap;
 }
 
+[data-rfc] ol li {
+  padding-left: 1ch;
+}
+
 [data-rfc] ul li::marker {
   content: 'o  ';
   white-space: pre;
