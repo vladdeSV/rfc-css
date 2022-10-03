@@ -37,9 +37,9 @@ If you ever wonder what the underlying HTML looks like, feel free to at any poin
 
 Before reading on, please take a moment to set your preferences. Your browser must support the CSS function \`:has(…)\`.</p>
 
-- <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label>
-- <label><input type=checkbox name=justify> <code>text-align: justify;</code></label>
-- <label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>  
+<p><label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label></p>
+<p><label><input type=checkbox name=justify> <code>text-align: justify;</code></label></p>
+<p><label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label></p>
 
 Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
 
@@ -57,10 +57,10 @@ This entire document both explains and shows RFC-CSS. Everything is written in M
 
 [dogfooding]: https://en.wiktionary.org/wiki/eat_one%27s_own_dog_food
 
-## Customizability
+### Customizability
 Some features can be modified with custom css rules. because css rules are scoped we could theoreticall change them per document, or per element.
 
-these are the available rules:
+My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
 - `--rfc-content-indentation`
 - `--rfc-term-width`
 - `--rfc-heading-spacing`
@@ -76,6 +76,63 @@ you would apply these rules with CSS like so:
 or directly inline html
 ```html
 <h2 style="--rfc-heading-spacing: 2ch;">My Special Heading</h2>
+```
+
+### Headings
+
+All headings are bold and not indented. The main title `h1` is centered. Headings `h2` to `h6` are automatically numbered.
+
+Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbers.
+
+```html
+<h2 data-rfc-heading=plain id=introduction>Introduction</h2>
+```
+
+<script>
+  function setCustomHeadingSpacing(spacing) {
+    const style = '--rfc-heading-spacing: ' + spacing + 'ch;'
+    document.getElementById('headings').style = style
+    document.querySelector('output[name=heading-spacing]').textContent = style
+  }
+</script>
+<p>
+  <strong>Demo</strong>:
+  <label>interactive heading numbering spacing:<br>
+    <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
+  </label>
+  <output name=heading-spacing>--rfc-heading-spacing: 1ch;</output>
+</p>
+
+
+### Lists
+Supported lists are
+
+1. ordered lists
+1. unordered lists
+1. description lists
+
+The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank spaces between items causes the text to be wrapped in `<p>`-tags
+
+- foo
+
+- bar
+
+- baz
+
+#### Description lists
+
+### Sections
+Sometimes you need show off some text indented. Unfortunately there is no appropriate Markdown alternative for this, so the `<section>`-tag is used.
+
+<section>
+  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code> is that no Markdown can be used within, and needs to be entierly written (and escaped properly) in HTML.</p>
+</section>
+
+For instance, that note was written as
+```html
+<section>
+  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code> is that no Markdown can be used within, and needs to be entierly written (and escaped properly) in HTML.</p>
+</section>
 ```
 
 ## Why
