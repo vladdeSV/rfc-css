@@ -115,7 +115,14 @@ Supported lists are
 
 1. description lists
 
-The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank spaces between items causes the text to be wrapped in `<p>`-tags.
+The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
+
+Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some examples:
+
+- [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
+- [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
+
+Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own expreiences, most do.
 
 ### Sections
 Sometimes you need show off some text indented. Unfortunately there is no appropriate Markdown alternative for this, so the `<section>`-tag is used.
