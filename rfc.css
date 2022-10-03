@@ -20,7 +20,6 @@
   }
 }
 
-
 @media print {
   [data-rfc] {
     margin: 0;
@@ -77,16 +76,16 @@
   content: "> ";
 }
 
-[data-rfc] :is(ul, ol) {
-  padding-left: var(--rfc-content-indentation)
-}
-
 [data-rfc] pre {
   margin-left: calc(var(--rfc-content-indentation) * 2);
 }
 
 [data-rfc] pre code {
   white-space: pre-wrap;
+}
+
+[data-rfc] :is(ul, ol) {
+  padding-left: var(--rfc-content-indentation)
 }
 
 [data-rfc] ol li {
