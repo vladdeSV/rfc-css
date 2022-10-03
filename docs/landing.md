@@ -96,14 +96,14 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
 <h2 data-rfc-heading=plain id=introduction>Introduction</h2>
 ```
 
-<script>
-  function setCustomHeadingSpacing(spacing) {
-    const style = '--rfc-heading-spacing: ' + spacing + 'ch;'
-    document.getElementById('headings').style = style
-    document.querySelector('output[name=heading-spacing]').textContent = style
-  }
-</script>
 <p>
+  <script>
+    function setCustomHeadingSpacing(spacing) {
+      const style = '--rfc-heading-spacing: ' + spacing + 'ch;'
+      document.getElementById('headings').style = style
+      document.querySelector('output[name=heading-spacing]').textContent = style
+    }
+  </script>
   <strong>Demo</strong>:
   <label>interactive heading numbering spacing:<br>
     <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
@@ -116,30 +116,24 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
 Supported lists are
 
 1. ordered lists
+
 1. unordered lists
+
 1. description lists
 
-The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank spaces between items causes the text to be wrapped in `<p>`-tags
-
-- foo
-
-- bar
-
-- baz
-
-#### Description lists
+The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank spaces between items causes the text to be wrapped in `<p>`-tags.
 
 ### Sections
 Sometimes you need show off some text indented. Unfortunately there is no appropriate Markdown alternative for this, so the `<section>`-tag is used.
 
 <section>
-  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code> is that no Markdown can be used within, and needs to be entierly written (and escaped properly) in HTML.</p>
+  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code>-tag is that no Markdown can be used within, and needs to be entirely written (and escaped properly) in HTML.</p>
 </section>
 
 For instance, that note was written as
 ```html
 <section>
-  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code> is that no Markdown can be used within, and needs to be entierly written (and escaped properly) in HTML.</p>
+  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code>-tag is that no Markdown can be used within, and needs to be entirely written (and escaped properly) in HTML.</p>
 </section>
 ```
 
