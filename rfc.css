@@ -109,6 +109,10 @@
   width: 1ch;
 }
 
+[data-rfc] input[type=range] {
+  width: 15ch;
+}
+
 /* heading counter */
 
 [data-rfc] h1 {
