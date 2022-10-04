@@ -145,3 +145,22 @@ For instance, that note was written as
 - common markdown to html feel lacking – unprofessional
 
 - i like rfc documents, focus is entirely on content
+
+## The Truth
+If you are extra curious, I offer you this single use button to remove a single attribute from the parent node.
+
+The button will:
+
+1. Remove the `data-rfc` attribute from this document
+2. Reset the margin `<body>`-tag
+3. Disable itself
+
+This button can show you that in the end its only HTML and nothing more.
+
+<section>
+  <p><strong>Note</strong>: You will need to refresh the page in order to reset the styling of this page.</p>
+</section>
+
+<label>
+  Remove data-rfc attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)">
+<label>
