@@ -190,16 +190,17 @@
   margin-left: calc(var(--rfc-content-indentation) * 2);
 }
 
-[data-rfc] dl>div {
+[data-rfc] dl {
   overflow: auto;
 }
 
-[data-rfc] dl>div>dt {
+[data-rfc] dl>dt {
   float: left;
   margin-right: 1ch;
+  clear: both;
 }
 
-[data-rfc] dl>div>dd {
+[data-rfc] dl>dd {
   float: right;
   margin: 0;
   width: calc(100% - var(--rfc-term-width));
@@ -207,15 +208,9 @@
   clear: right;
 }
 
-[data-rfc] dl>div>dd::after {
+[data-rfc] dl>dd::after {
   content: "\a";
   white-space: pre;
-}
-
-/* workaround for unwrapped dt/dd's */
-[data-rfc] dl>dd {
-  margin-left: var(--rfc-term-width);
-  padding-bottom: 15px;
 }
 
 /* navigation */
