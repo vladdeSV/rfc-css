@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "serve": "yarn http-server"
+    "serve": "yarn nodemon dev-server.ts"
   },
   "devDependencies": {
     "@types/node": "^18.8.0",
