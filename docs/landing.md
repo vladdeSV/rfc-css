@@ -57,7 +57,7 @@ Some features can be modified with custom css rules. because css rules are scope
 
 My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
 
-<dl>
+<dl style="--rfc-term-width: 18ch;">
   <dt><code>--rfc-content-indentation</code></dt>
   <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
 
