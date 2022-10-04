@@ -25,13 +25,11 @@
 <h2 data-rfc-heading=plain id=summary>Summary</h2>
 > CSS has become so powerful we can finally emulate text documents from the 1970's.
 
-<!-- RFC text documents are cool. Simple semantic HTML is cool. Let's combine them. -->
 RFC text documents are cool. Markdown is nice.
 
 Let's combine them.
 
 <h2 data-rfc-heading=plain id=introduction>Introduction</h2>
-
 This is a project where you can take your existing plain semantic HTML and convert it to authentic looking RFC documents.
 If you ever wonder what the underlying HTML looks like, feel free to at any point check the source of this page. Everything here is generated from a Markdown document ([source](#)), with very little inline HTML.
 
@@ -46,7 +44,7 @@ If you ever wonder what the underlying HTML looks like, feel free to at any poin
 <aside data-rfc-toc></aside>
 
 ## Features
-> Eat your own dog food ([explanation](dogfooding))
+> Eat your own dog food ([explanation][dogfooding])
 
 This entire document both explains and shows RFC-CSS. Everything is written in Markdown and converted to HTML.
 
