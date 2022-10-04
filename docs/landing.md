@@ -35,13 +35,13 @@ Let's combine them.
 This is a project where you can take your existing plain semantic HTML and convert it to authentic looking RFC documents.
 If you ever wonder what the underlying HTML looks like, feel free to at any point check the source of this page. Everything here is generated from a Markdown document ([source](#)), with very little inline HTML.
 
-Before reading on, please take a moment to set your preferences. Your browser must support the CSS function \`:has(…)\`.</p>
-
-<label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
-<label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
-<label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
-
-Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
+<div class=has>
+  <p>Before reading on, please take a moment to set your preferences. Your browser must support the CSS function \`:has(…)\`.</p>
+  <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
+  <label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
+  <label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
+  <p>Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
+</div>
 
 <aside data-rfc-toc></aside>
 

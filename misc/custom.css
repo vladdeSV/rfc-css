@@ -2,6 +2,12 @@ body {
   margin: 0;
 }
 
+@supports not selector(:has(div)) {
+  .has {
+    display: none;
+  }
+}
+
 #js-demo-term-width-range {
   width: 21ch;
 }
