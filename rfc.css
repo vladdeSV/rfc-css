@@ -105,6 +105,14 @@
   box-sizing: border-box;
 }
 
+[data-rfc] input[type=button] {
+  padding: 0;
+  vertical-align: bottom;
+  border: none;
+  border-radius: 3px;
+  outline: 1px solid #999;
+}
+
 [data-rfc] input[type=checkbox] {
   width: 1ch;
 }
