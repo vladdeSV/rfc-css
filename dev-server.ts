@@ -6,30 +6,8 @@ const app = express()
 const showdown = new Converter()
 const tempateHtml = readFileSync('./index.html', 'utf-8')
 
-// load all available documents
-const availableDocuments = (() => {
-  const filenames = readdirSync(__dirname + '/docs').filter(filename => filename.endsWith('.md'))
-
-  const out: Record<string, string> = {}
-  for (const filename of filenames) {
-    const id = filename.replace('.md', '')
-    const content = readFileSync(__dirname + '/docs/' + filename, 'utf-8')
-    out[id] = showdown.makeHtml(content)
-  }
-
-  return out
-})()
-
 function loadDocument(id: string) {
-  if (!(id in availableDocuments)) {
-    return undefined
-  }
-
-  let markdown = availableDocuments[id]
-  if (process.env.ENV === 'dev') {
-    markdown = readFileSync(__dirname + '/docs/' + id + '.md', 'utf-8')
-  }
-
+  const markdown = readFileSync(__dirname + '/docs/' + id + '.md', 'utf-8')
   const content = showdown.makeHtml(markdown)
   return tempateHtml.replace('{{content}}', content)
 }
