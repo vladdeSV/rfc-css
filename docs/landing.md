@@ -34,10 +34,12 @@ This is a project where you can take your existing plain semantic HTML and conve
 If you ever wonder what the underlying HTML looks like, feel free to at any point check the source of this page. Everything here is generated from a Markdown document ([source](#)), with very little inline HTML.
 
 <div class=has>
-  <p>Before reading on, please take a moment to set your preferences. Your browser must support the CSS function \`:has(…)\`.</p>
-  <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
-  <label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
-  <label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
+  <p>Before reading on, please take a moment to set your preferences. Your browser must support the CSS function <code>:has(…)</code>.</p>
+  <p>
+    <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
+    <label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
+    <label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
+  </p>
   <p>Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
 </div>
 
@@ -115,7 +117,7 @@ Supported lists are
 
 The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
 
-Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some examples:
+Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some example RFCs which follow this convention:
 
 - [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
 - [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
