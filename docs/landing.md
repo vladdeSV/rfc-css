@@ -124,6 +124,60 @@ Following conventions from RFCs, unordered lists use the letter 'o' as marker. S
 
 Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own expreiences, most do.
 
+#### Description lists
+
+<blockquote cite=https://theportalwiki.com/wiki/Cave_Johnson_voice_lines#1982>
+  <p>When life gives you lemons, [...] make life take the lemons back.</p>
+</blockquote>
+
+The "description list" is, in my opinion, the most underrated list. It is perfect when you want to clearly (and semantically) describe a term. Unfortunately Markdown does not support description lists, so they will have to be written entierly in HTML.
+
+Wrapping each "group" in a `<div>`-tag creates a visual style like this:
+
+<dl>
+  <div>
+    <dt>term</dt>
+    <dd>The "term" used to name thing that is being described</dd>
+  </div>
+  <div>
+    <dt>description</dt>
+    <dd>An explanation of what the term is, placed adjecant to the term. The HTML specification from <a href=https://www.w3.org/MarkUp/HTMLPlus/htmlplus_34.html>1993</a> calls this a "definition", but the current HTML specification <a href=https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element>WHATWG</a> calls this "description"</dd>
+  </div>
+</dl>
+
+Leaving the terms and descriptions "unwrapped" will visuall look different, while still keeping the same semantic meaning as in the list above:
+
+<p>
+  <script>
+    function setCustomTermWidth(width) {
+      const style = '--rfc-term-width: ' + width + 'ch;'
+      document.getElementById('demo-term-width').style = style
+      document.querySelector('output[name=term-width]').innerHTML = `<code>${style}</code>`
+    }
+  </script>
+  <strong>Demo</strong>:
+  <label>
+    interactive term size:<br>
+    <input type=range min=0 max=20 value=12 oninput="setCustomTermWidth(this.value)">
+  </label>
+  <output name=term-width>--rfc-term-width: 12ch;</output>
+</p>
+<dl id=demo-term-width>
+  <dt>demo</dt>
+  <dd>This is an interactive demo of the description list, and modified with the CSS variable <code>--rfc-term-width</code>. Drag the slider to change the width of the terms.</dd>
+  <dd>The change is purely visual.</dd>
+  <dt>dynamic</dt>
+  <dd>Try moving the slider to about 6ch, and see this text gets placed underneath the term "dynamic".</dd>
+  <dd>If you move it back to 12ch, the term and the beginning of this text gets lined up again.</dd>
+  <dd>Regardless what you set the width for the term, or how it looks, the semantic meaning of the document is preserved. Everything here can be read by screen readers.</dd>
+
+  <dt><input type=text size=16 value="description list" oninput="this.size = Math.max(this.value.length - 1, 1)"></dt>
+  <dd>
+    You can modify the this term "description list" to see how it affects this text.
+    <div class=has><br><label>Show layout: <input type=checkbox name=layout></label>
+  </dd>
+</dl>
+
 ### Sections
 Sometimes you need show off some text indented. Unfortunately there is no appropriate Markdown alternative for this, so the `<section>`-tag is used.
 
