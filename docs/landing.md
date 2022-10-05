@@ -192,6 +192,27 @@ For instance, that note was written as
 </section>
 ```
 
+## Weaknesses
+I strive to have a 1:1 stylesheet to look like a RFC document, but there are a couple smaller things which I do now know how to emulate / fix with pure CSS:
+
+1. Double spacing after periods
+2. Centering is too centered
+3. `display: inline;` and whitespace in HTML
+
+### Double spaces
+I do not understand why, but RFCs are written with double spaces after a sentance. As far as I know, there is no way with pure CSS to enforce this. If you write HTML and set the CSS rule `white-space: pre` or similar you can keep the whitespace. However, this is not how I write my paragraphs. Furthermore, this is a Markdown document, and extra whitespace gets trimmed away.
+
+If there is a CSS rule which allows for doubly spaces after periods in tags, please leave a PR.
+
+### Too centered titles
+For titles which are centered, it becomes a problem when there are a odd number of characters in the title, as a there will be a one character misalignment in textdoucments, but CSS just puts it in the exact middle.
+
+### Inline whitespace shenanigans
+I've noticed that `inline` elements depend on the whitespace in the HTML document. This causes issues when I want a specified amount of character spacing between elements. The following snippets will display differently in a `<dl>`-tag:
+
+- `<dt>foo</dt><dd>bar</dd>`
+- `<dt>foo</dt> <dd>bar</dd>`, or any form of whitespace between
+
 ## Why
 
 - serious documentation at work
