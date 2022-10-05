@@ -108,6 +108,7 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
 Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some example RFCs which follow this convention:
 
 - [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
+
 - [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
 
 Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own expreiences, most do.
