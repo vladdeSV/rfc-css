@@ -57,15 +57,15 @@ Some features can be modified with custom css rules. because css rules are scope
 
 My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
 
-<dl style="--rfc-term-width: 18ch;">
-  <dt><code>--rfc-content-indentation</code></dt>
-  <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
+<dl style="--rfc-term-width: 23ch;">
+  <dt><code>--rfc-heading-spacing</code></dt>
+  <dd>Spacing between the heading and the numbering of the heading.</dd>
 
   <dt><code>--rfc-term-width</code></dt>
   <dd>Minimum width of terms in description lists.</dd>
 
-  <dt><code>--rfc-heading-spacing</code></dt>
-  <dd>Spacing between the heading and the numbering of the heading.</dd>
+  <dt><code>--rfc-content-indentation</code></dt>
+  <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
 </dl>
 
 you would apply these rules with CSS like so:
