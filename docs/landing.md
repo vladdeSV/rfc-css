@@ -82,8 +82,6 @@ or directly inline html
 ```
 
 ### Headings
-All headings are bold and not indented. The main title `h1` is centered. Headings `h2` to `h6` are automatically numbered.
-
 Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbers.
 
 ```html
@@ -107,22 +105,14 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
 
 
 ### Lists
-Supported lists are
-
-1. ordered lists
-
-1. unordered lists
-
-1. description lists
-
-The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
-
 Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some example RFCs which follow this convention:
 
 - [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
 - [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
 
 Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own expreiences, most do.
+
+The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
 
 #### Description lists
 
@@ -132,7 +122,7 @@ Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/h
 
 The "description list" is, in my opinion, the most underrated list. It is perfect when you want to clearly (and semantically) describe a term. Unfortunately Markdown does not support description lists, so they will have to be written entierly in HTML.
 
-Wrapping each "group" in a `<div>`-tag creates a visual style like this:
+Wrapping each "group" in a `<div>`-tag creates a visual style commonly found in RFCs when defining terms.
 
 <dl>
   <div>
@@ -142,6 +132,11 @@ Wrapping each "group" in a `<div>`-tag creates a visual style like this:
   <div>
     <dt>description</dt>
     <dd>An explanation of what the term is, placed adjecant to the term. The HTML specification from <a href=https://www.w3.org/MarkUp/HTMLPlus/htmlplus_34.html>1993</a> calls this a "definition", but the current HTML specification <a href=https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element>WHATWG</a> calls this "description"</dd>
+  </div>
+  <div class=has>
+    <dt>layout</dt>
+    <dd>To visualize the layout, you can use this handy toggle to see the layout</dd>
+    <dd><label>Show layout: <input type=checkbox name=layout></label></dd>
   </div>
 </dl>
 
