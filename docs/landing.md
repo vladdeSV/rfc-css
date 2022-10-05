@@ -209,7 +209,7 @@ The button will:
 2. Reset the margin `<body>`-tag
 3. Disable itself
 
-This button can show you that in the end its only HTML and nothing more.
+This button can show you the page in its entierty and that in the end its only HTML and nothing more.
 
 <section>
   <p><strong>Note</strong>: You will need to refresh the page in order to reset the styling of this page.</p>
