@@ -204,8 +204,50 @@
   clear: right;
 }
 
+[data-rfc] dl>dd:last-child {
+  padding-bottom: 0;
+}
+
+[data-rfc] dl>dd:last-child:after {
+  content: none;
+}
+
 [data-rfc] dl>dd::after {
   content: "\a";
+  white-space: pre;
+}
+
+[data-rfc] dl>div {
+  padding-left: var(--rfc-content-indentation);
+  margin-bottom: 15px;
+}
+
+[data-rfc] dl>div:last-child {
+  margin-bottom: 0;
+}
+
+[data-rfc] dl>div>dt {
+  display: inline;
+  margin-left: calc(-1 * var(--rfc-content-indentation));
+}
+
+[data-rfc] dl>div>dt::after {
+  content: ":";
+  padding-right: 1ch;
+}
+
+[data-rfc] dl>div>dd {
+  display: inline;
+  margin: 0;
+}
+
+[data-rfc] dl>div>dd::after {
+  content: "\a\a";
+  white-space: pre;
+}
+
+[data-rfc] dl>div>dd:last-of-type:after {
+  content: none;
   white-space: pre;
 }
 
