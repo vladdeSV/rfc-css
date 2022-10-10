@@ -243,6 +243,24 @@ Adding an additional link would be nothing more than to add another list item.
 <li><a href="…">…</a></li>
 ```
 
+### Images and / in figures
+
+The entire document is based on a 15px tall line height. However, images defy that rule. For instance, an image could be 307px tall, which would offset the rest of the document by 7px.
+
+Only small image:
+
+![kitten](https://placekitten.com/200/200)
+
+Image in `<figure>`-tag with caption:
+
+<figure>
+  <img alt="cute kitten" src="https://placekitten.com/600/265">
+  <figcaption>Cute kitten</figcaption>
+</figure>
+
+Images provided by [placekitten](https://placekitten.com).
+
+
 ## Weaknesses
 I strive to have a 1:1 stylesheet to look like a RFC document.
 
