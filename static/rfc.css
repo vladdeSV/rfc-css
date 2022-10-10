@@ -150,7 +150,10 @@
   counter-increment: rfc-h6;
 }
 
-[data-rfc] [data-rfc-heading=counter] h2::before {
+:is([data-rfc] [data-rfc-heading=counter] h2,
+  [data-rfc] h2[data-rfc-heading=counter],
+  [data-rfc][data-rfc-heading=counter] h2,
+)::before {
   content: counter(rfc-h2) ".";
 }
 
