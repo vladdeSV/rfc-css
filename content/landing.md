@@ -79,11 +79,13 @@ or directly inline html
 <h2 style="--rfc-heading-spacing: 2ch;">My Special Heading</h2>
 ```
 
-<h3 data-rfc-heading=counter id=headings style="--rfc-heading-spacing: 2ch;">Headings</h3>
+<h3 data-rfc-heading=counter id=headings>Headings</h3>
 
 Auto numbering of headings can be enabled by applying the attribute `data-rfc-heading=counter` to any of the headings' parents, or the heading itself.
 
-Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbers.
+This is not enabled by default, because I would not use them that way. However, this article has auto numbering enabled.
+
+Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbering.
 
 ```
 <h2 data-rfc-heading=plain id=introduction>Introduction</h2>
@@ -101,14 +103,14 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
   </script>
   <strong>Demo</strong>:
   <label>interactive heading numbering spacing:<br>
-    <input type=range min=0 max=4 value=2 oninput="setCustomHeadingSpacing(this.value)">
+    <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
   </label>
-  <output name=heading-spacing><code>--rfc-heading-spacing: 2ch;</code></output>
+  <output name=heading-spacing><code>--rfc-heading-spacing: 1ch;</code></output>
 </p>
 
 
 ### Lists
-Following conventions from RFCs, unordered lists use the letter 'o' as marker. Some example RFCs which follow this convention:
+Following conventions from RFCs, unordered lists use the letter 'o' as marker. Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own experiences, most do. Some example RFCs which follow this convention:
 
 - [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
 
@@ -139,7 +141,7 @@ The spacing between items is determined by the content in the `<li>`-tags. Becau
   <p>When life gives you lemons, [...] make life take the lemons back.</p>
 </blockquote>
 
-The "description list" is, in my opinion, the most underrated list. It is perfect when you want to clearly (and semantically) describe a term. Unfortunately Markdown does not support description lists, so they will have to be written entierly in HTML.
+The "description list" is, in my opinion, the most underrated list. It is perfect when you want to clearly (and semantically) describe a term. Unfortunately Markdown does not support description lists, so they will have to be written entirely in HTML.
 
 Wrapping each "group" in a `<div>`-tag creates a visual style commonly found in RFCs when defining terms.
 
@@ -229,22 +231,46 @@ For instance, that note was written as
 </section>
 ```
 
+## Additional
+Some features require additional efforts, but they look cool.
+
+### Navigation menu
+At the top of this page you can find the nav menu, which leads to other parts of my page. That is nothing more than a list in a navigation element. You can look at the `<nav>`-tag by right-clicking it and selecting "Inspect element" or similar.
+
+Adding an additional link would be nothing more than to add another list item.
+
+```
+<li><a href="…">…</a></li>
+```
+
 ## Weaknesses
-I strive to have a 1:1 stylesheet to look like a RFC document, but there are a couple smaller things which I do now know how to emulate / fix with pure CSS.
+I strive to have a 1:1 stylesheet to look like a RFC document.
+
+However, there are a couple smaller things which I do now know how to emulate / fix with pure CSS.
+
+### Table of Contents is a hack
+The table of contents (ToC) needs to be manually written out, or possibly generated with JavaScript. There is really no way to generate an entire ToC with just CSS.
+
+I think the easiest approach would be to generate the ToC with JavaScript during runtime, since the DOM is somewhat easy to work with.
 
 ### Double spaces
-I do not understand why, but RFCs are written with double spaces after a sentance. As far as I know, there is no way with pure CSS to enforce this. If you write HTML and set the CSS rule `white-space: pre` or similar you can keep the whitespace. However, this is not how I write my paragraphs. Furthermore, this is a Markdown document, and extra whitespace gets trimmed away.
 
-If there is a CSS rule which allows for doubly spaces after periods in tags, please leave a PR.
+<p style="white-space: pre-wrap">I do not understand why, but RFCs are written with double spaces after a sentence.  As far as I know, there is no way with pure CSS to enforce this.  If you write HTML and set the CSS rule `white-space: pre` or similar you can keep the whitespace.  This paragraph is using that rule.</p>
 
-### Too centered titles
-For titles which are centered, it becomes a problem when there are a odd number of characters in the title, as a there will be a one character misalignment in textdoucments, but CSS just puts it in the exact middle.
+However, this is a Markdown document and extra whitespace gets trimmed away, unless you wrap the text is written in a `<p style="white-space: pre-wrap">`-tag, for instance.
+
+If there is a CSS rule which allows for doubly spaces after periods in tags, please [leave a PR][github].
+
+[github]: https://github.com/vladdeSV/rfc-css
 
 ### Inline whitespace shenanigans
 I've noticed that `inline` elements (`display: inline;`) depend on the whitespace in the HTML document. This causes issues when I want a specified amount of character spacing between elements. The following snippets will display differently in a `<dl>`-tag:
 
 - `<dt>foo</dt><dd>bar</dd>`
 - `<dt>foo</dt> <dd>bar</dd>`, or any form of whitespace between
+
+### Too centered titles
+For titles which are centered, it becomes a problem when there are a odd number of characters in the title, as a there will be a one character misalignment in textdoucments, but CSS just puts it in the exact middle.
 
 ## Why
 
@@ -270,5 +296,5 @@ This button can show you the page in its entierty and that in the end its only H
 </section>
 
 <label>
-  Remove data-rfc attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)">
+  Remove <code>data-rfc</code> attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)" style="background: orangered; color: white;" title="red pill">
 <label>
