@@ -5,6 +5,7 @@ draft: false
 ---
 
 <h2 data-rfc-heading=plain id=summary>Summary</h2>
+
 > CSS has become so powerful we can finally emulate text documents from the 1970's.
 
 RFC text documents are cool. Markdown is nice.
@@ -52,7 +53,7 @@ My suggestion is to set these variables globally to ensure a consisten looking d
 </dl>
 
 you would apply these rules with CSS like so:
-```css
+```
 /* style.css */
 
 .special-heading {
@@ -64,11 +65,16 @@ or directly inline html
 <h2 style="--rfc-heading-spacing: 2ch;">My Special Heading</h2>
 ```
 
-### Headings
+<h3 data-rfc-heading=counter id=headings style="--rfc-heading-spacing: 2ch;">Headings</h3>
+
+Auto numbering of headings can be enabled by applying the attribute `data-rfc-heading=counter` to any of the headings' parents, or the heading itself.
+
 Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbers.
 
-```html
+```
 <h2 data-rfc-heading=plain id=introduction>Introduction</h2>
+
+<h3 data-rfc-heading=counter id=headings>Headings</h3>
 ```
 
 <p>
@@ -81,9 +87,9 @@ Any headings with the attribute `data-rfc-heading=plain` will be both un-numbere
   </script>
   <strong>Demo</strong>:
   <label>interactive heading numbering spacing:<br>
-    <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
+    <input type=range min=0 max=4 value=2 oninput="setCustomHeadingSpacing(this.value)">
   </label>
-  <output name=heading-spacing><code>--rfc-heading-spacing: 1ch;</code></output>
+  <output name=heading-spacing><code>--rfc-heading-spacing: 2ch;</code></output>
 </p>
 
 
@@ -108,6 +114,8 @@ The "description list" is, in my opinion, the most underrated list. It is perfec
 
 Wrapping each "group" in a `<div>`-tag creates a visual style commonly found in RFCs when defining terms.
 
+Example:
+
 <dl>
   <div>
     <dt>term</dt>
@@ -119,8 +127,7 @@ Wrapping each "group" in a `<div>`-tag creates a visual style commonly found in 
   </div>
   <div class=has>
     <dt>layout</dt>
-    <dd>To visualize the layout, you can use this handy toggle to see the layout</dd>
-    <dd><label>Show layout: <input type=checkbox name=layout></label></dd>
+    <dd>To visualize the layout, you can use this handy toggle to see the layout. <label>Show layout: <input type=checkbox name=layout></label></dd>
   </div>
 </dl>
 
@@ -165,7 +172,7 @@ Sometimes you need show off some text indented. Unfortunately there is no approp
 </section>
 
 For instance, that note was written as
-```html
+```
 <section>
   <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code>-tag is that no Markdown can be used within, and needs to be entirely written (and escaped properly) in HTML.</p>
 </section>
