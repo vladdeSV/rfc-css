@@ -386,20 +386,26 @@
 }
 
 /* table of content */
-[data-rfc] aside[data-rfc-toc] {
+[data-rfc] nav[data-rfc-toc] ul {
   margin-left: var(--rfc-content-indentation);
 }
 
-[data-rfc] aside[data-rfc-toc]:empty {
+[data-rfc] [data-rfc-toc]:empty {
   display: none;
 }
 
-[data-rfc] aside[data-rfc-toc]+:is(h1, h2, h3, h4, h5, h6) {
-  counter-reset: rfc-h2 rfc-h3 rfc-h4 rfc-h5 rfc-h6;
+[data-rfc] [data-rfc-toc] ol {
+  list-style: none;
+  list-style-position: unset;
+  margin-left: 0;
+  padding-left: 2ch;
 }
 
-[data-rfc] aside[data-rfc-toc] :is(h1, h2, h3, h4, h5, h6) {
-  text-align: unset;
-  margin: 0;
-  font-weight: normal;
+[data-rfc] [data-rfc-toc] li {
+  padding: 0;
+  padding-right: 1ch;
+}
+
+[data-rfc] [data-rfc-toc] :is(a, span) {
+  padding-right: var(--rfc-heading-spacing);
 }

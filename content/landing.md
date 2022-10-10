@@ -27,7 +27,18 @@ If you ever wonder what the underlying HTML looks like, feel free to at any poin
   <p>Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
 </div>
 
-<aside data-rfc-toc></aside>
+<nav data-rfc-toc>
+  <h2 data-rfc-heading=plain id=table-of-contents>Table of Contents</h2>
+
+1. [1.](#features) Features
+    1. [1.1.](#customizability) Customizability
+    1. [1.2.](#headings) Headings
+    1. [1.3.](#lists) Lists
+        1. [1.3.1.](#description-lists) Description lists
+    1. [1.4.](#sections) Sections
+    1. todo \...
+
+</nav>
 
 ## Features
 > Eat your own dog food ([explanation][dogfooding])
