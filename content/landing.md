@@ -1,26 +1,8 @@
-<nav>
-  <ul>
-    <li><a href=#>home</a></li>
-    <li><a href=#>other</a></li>
-    <li><a href=#>misc</a></li>
-  </ul>
-  SHOWCASE
-</nav>
-<header>
-  <ul>
-    <li>b. the bubbening</li>
-    <li>RFC-CSS</li>
-    <li>Category: Hobby Project</li>
-    <li>Cool Number: 1337-420-69</li>
-    <li>Cool Word: nice.</li>
-  </ul>
-  <ul>
-    <li>Vladimirs Nordholm</li>
-    <li><time pubdate datetime="2022-09">September 2022</time></li>
-  </ul>
-</header>
-
-# Semantic HTML in Authentic Old School RFC Format
+---
+title: Semantic HTML in Authentic Old School RFC Format
+date: 2022-10-10T00:00:00
+draft: false
+---
 
 <h2 data-rfc-heading=plain id=summary>Summary</h2>
 > CSS has become so powerful we can finally emulate text documents from the 1970's.
@@ -30,6 +12,7 @@ RFC text documents are cool. Markdown is nice.
 Let's combine them.
 
 <h2 data-rfc-heading=plain id=introduction>Introduction</h2>
+
 This is a project where you can take your existing plain semantic HTML and convert it to authentic looking RFC documents.
 If you ever wonder what the underlying HTML looks like, feel free to at any point check the source of this page. Everything here is generated from a Markdown document ([source](#)), with very little inline HTML.
 
@@ -77,7 +60,7 @@ you would apply these rules with CSS like so:
 }
 ```
 or directly inline html
-```html
+```
 <h2 style="--rfc-heading-spacing: 2ch;">My Special Heading</h2>
 ```
 

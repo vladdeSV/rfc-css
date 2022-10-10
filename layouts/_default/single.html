@@ -1,0 +1,29 @@
+{{ define "main" }}
+<main>
+    <article>
+        <nav>
+            <ul>
+                <li><a href=#>home</a></li>
+                <li><a href=#>other</a></li>
+                <li><a href=#>misc</a></li>
+            </ul>
+            SHOWCASE
+        </nav>
+        <header>
+            <ul>
+                <li>b. the bubbening</li>
+                <li>RFC-CSS</li>
+                <li>Category: Hobby Project</li>
+                <li>Cool Number: 1337-420-69</li>
+                <li>Cool Word: nice.</li>
+            </ul>
+            <ul>
+                {{ with .Site.Params.author }}<li>{{ . }}</li>{{ end }}
+                <li><time datetime={{ .Date.Format "2006-01-02T15:04:05" }}>{{ .Date.Format "January 2006" }}</time></li>
+            </ul>
+        </header>
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+    </article>
+</main>
+{{ end }}
