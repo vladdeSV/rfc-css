@@ -284,13 +284,13 @@
 
 /* navigation */
 
-[data-rfc] nav {
+[data-rfc] nav[data-rfc-navigation] {
   text-align: right;
   background-color: #eee;
   padding-bottom: 15px;
 }
 
-[data-rfc] nav ul {
+[data-rfc] nav[data-rfc-navigation] ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -301,25 +301,25 @@
   text-align: left;
 }
 
-[data-rfc] nav ul li {
+[data-rfc] nav[data-rfc-navigation] ul li {
   margin-bottom: 0;
 }
 
-[data-rfc] nav ul li::marker {
+[data-rfc] nav[data-rfc-navigation] ul li::marker {
   content: unset;
 }
 
-[data-rfc] nav ul li::before {
+[data-rfc] nav[data-rfc-navigation] ul li::before {
   content: '[';
 }
 
-[data-rfc] nav ul li::after {
+[data-rfc] nav[data-rfc-navigation] ul li::after {
   content: ']';
 }
 
 /* do not show when printing */
 @media print {
-  [data-rfc] nav {
+  [data-rfc] nav[data-rfc-navigation] {
     display: none;
   }
 
