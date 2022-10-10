@@ -10,6 +10,7 @@
   --rfc-content-indentation: 3ch;
   --rfc-term-width: 12ch;
   --rfc-heading-spacing: 1ch;
+  --rfc-list-marker: 'o  ';
 }
 
 /* screen is less than 600 px  remove margin */
@@ -54,6 +55,10 @@
   margin-left: var(--rfc-content-indentation);
 }
 
+[data-rfc] ol ol {
+  margin: 0;
+}
+
 [data-rfc] a {
   white-space: nowrap;
 }
@@ -92,7 +97,7 @@
 }
 
 [data-rfc] ul li::marker {
-  content: 'o  ';
+  content: var(--rfc-list-marker);
   white-space: pre;
 }
 

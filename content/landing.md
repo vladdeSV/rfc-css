@@ -48,6 +48,9 @@ My suggestion is to set these variables globally to ensure a consisten looking d
   <dt><code>--rfc-term-width</code></dt>
   <dd>Minimum width of terms in description lists.</dd>
 
+  <dt><code>--rfc-list-marker</code></dt>
+  <dd>String representing how lists should be displayed. Commonly one letter, followed by two spaces.</dd>
+
   <dt><code>--rfc-content-indentation</code></dt>
   <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
 </dl>
@@ -100,7 +103,22 @@ Following conventions from RFCs, unordered lists use the letter 'o' as marker. S
 
 - [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
 
-Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own expreiences, most do.
+
+
+The marker can be modified with the variable `--rfc-list-marker`.
+
+```
+ul.my-list {
+  --rfc-list-marker: '-  ';
+}
+```
+
+becomes
+
+<ul style="--rfc-list-marker: '-  ';">
+  <li>test
+  <li>test2
+</ul>
 
 The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
 
