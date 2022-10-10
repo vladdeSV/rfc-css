@@ -186,7 +186,29 @@ Leaving the terms and descriptions "unwrapped" will visuall look different, whil
   <dd>If you move it back to 12ch, the term and the beginning of this text gets lined up again.</dd>
   <dd>Regardless what you set the width for the term, or how it looks, the semantic meaning of the document is preserved. Everything here can be read by screen readers.</dd>
 
-  <dt><input type=text size=16 value="description list" oninput="this.size = Math.max(this.value.length - 1, 1)"></dt>
+
+  <script>
+    // setting <input> size acts different on Firefox and Chromium. This fixes this.
+
+    const isFirefox = typeof InstallTrigger !== 'undefined'
+    const inputSizeDelta = isFirefox ? 1 : 0
+
+    function setInputSize(input) {
+      input.size = 15 + inputSizeDelta
+    }
+
+    function setInputWidth(input) {
+      input.size = Math.max(input.value.length - 1 + inputSizeDelta, 1)
+    }
+
+    // document onload event
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const input = document.getElementById('demo-dl-term-width')      
+      setInputSize(input)
+      input.addEventListener('input', () => setInputWidth(input))
+    })
+  </script>
+  <dt><input id=demo-dl-term-width type=text size=15 value="description list"></dt>
   <dd>
     You can modify the this term "description list" to see how it affects this text.
     <div class=has><br><label>Show layout: <input type=checkbox name=layout></label>
