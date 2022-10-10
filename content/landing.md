@@ -313,6 +313,8 @@ This button can show you the page in its entierty and that in the end its only H
   <p><strong>Note</strong>: You will need to refresh the page in order to reset the styling of this page.</p>
 </section>
 
-<label>
-  Remove <code>data-rfc</code> attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)" style="background: orangered; color: white;" title="red pill">
-<label>
+<p>
+  <label>
+    Remove <code>data-rfc</code> attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)" style="background: orangered; color: white;" title="red pill">
+  <label>
+</p>
