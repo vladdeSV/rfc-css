@@ -1,5 +1,5 @@
 body {
-  margin: 0 0 0 4em;
+  margin: 0 0 2em 4em;
 }
 
 @supports not selector(:has(div)) {
@@ -48,11 +48,12 @@ dl:has(input[name=layout]:checked) dd {
 }
 
 :root:has(input[type=checkbox][name=extra]:checked) [data-rfc] pre {
-  /* border-radius: 0.5ch; */
+  border-radius: 0.5ch;
   --pre-padding: 1ch;
   background-color: field;
   display: inline-block;
-  outline: 1px solid currentcolor;
+  background-color: #333;
+  color: #fff;
   margin-top: calc(-1 * var(--pre-padding));
   margin-bottom: calc(-1 * var(--pre-padding));
   margin-left: calc(var(--rfc-content-indentation) * 2 - var(--pre-padding));
@@ -66,7 +67,7 @@ dl:has(input[name=layout]:checked) dd {
   }
 }
 
-:root:has(input[type=checkbox][name=dark-mode]:checked) [data-rfc] nav {
+:root:has(input[type=checkbox][name=dark-mode]:checked) [data-rfc] nav[data-rfc-navigation] {
   background-color: #222;
 }
 
