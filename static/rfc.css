@@ -84,6 +84,10 @@
   margin-left: calc(var(--rfc-content-indentation) * 2);
 }
 
+[data-rfc] code {
+  white-space: nowrap;
+}
+
 [data-rfc] pre code {
   white-space: pre-wrap;
 }
