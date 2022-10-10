@@ -22,7 +22,7 @@ If you ever wonder what the underlying HTML looks like, feel free to at any poin
   <p>
     <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
     <label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
-    <label><input type=checkbox name=extra> <code>--rfc-extra: yes please;</code></label>
+    <label><input type=checkbox name=extra> extra custom css</label>
   </p>
   <p>Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
 </div>
