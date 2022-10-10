@@ -385,6 +385,40 @@
   content: none;
 }
 
+/* tables */
+[data-rfc] figure {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+[data-rfc] table {
+  border-collapse: collapse;
+  margin-left: var(--rfc-content-indentation);
+  text-align: left;
+
+}
+
+[data-rfc] :is(td, th) {
+  border: 0px solid #ccc;
+  padding: 0 1ch;
+  margin: 0 1ch;
+}
+
+[data-rfc] th {
+  padding-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-rfc] th::after {
+  content: '------------------------------------------------------------------------';
+  display: block;
+  position: absolute;
+  right: 1ch;
+  left: 1ch;
+}
+
 /* table of content */
 [data-rfc] nav[data-rfc-toc] ul {
   margin-left: var(--rfc-content-indentation);

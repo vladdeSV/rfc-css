@@ -231,6 +231,24 @@ For instance, that note was written as
 </section>
 ```
 
+### Tables
+
+Tables are a real bummer. This is the best I can do. Works both stand-alone and wrapped in `<figure>`-tag.
+
+<figure>
+
+| Feature | Difficulty |
+|---|---|
+| Description lists | Very annoying and time-consuming  |
+| Custom CSS rules | Simple and straight forward |
+| Tables | Somewhat hard, feature limited |
+| Images | Not hard at all |
+
+<figcaption>
+<p>Feature difficulty</p>
+</figcaption>
+</figure>
+
 ## Additional
 Some features require additional efforts, but they look cool.
 
