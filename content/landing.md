@@ -1,338 +1,113 @@
 ---
-title: Semantic HTML in Authentic Old School RFC Format
+title: Test Document for Science Purposes
 date: 2022-10-10T00:00:00
-draft: false
+draft: true
 ---
 
-<h2 data-rfc-heading=plain id=summary>Summary</h2>
+<h2 data-rfc-heading=plain>Plain Heading</h2>
 
-> CSS has become so powerful we can finally emulate text documents from the 1970's.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ligula ligula, maximus vel ipsum et, efficitur iaculis velit. Mauris condimentum aliquam erat, faucibus pellentesque neque malesuada sed. Aenean posuere purus at ex feugiat, sed sagittis arcu bibendum. Etiam a iaculis turpis. Aenean placerat dignissim magna eget feugiat. Pellentesque quis laoreet magna, in lacinia massa.
 
-RFC text documents are cool. Markdown is nice.
+Nam luctus, odio eu gravida viverra, mauris massa egestas leo, a iaculis ante tellus vel sapien. Sed faucibus tincidunt iaculis. Praesent quis nunc in dolor placerat facilisis. Pellentesque eleifend condimentum mi. Fusce ut facilisis leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi nec imperdiet massa. Duis semper varius maximus. Mauris ut placerat elit. Maecenas ligula justo, scelerisque ac commodo varius, lobortis id mi.
 
-Let's combine them.
+## Numbered H2 Heading
 
-<h2 data-rfc-heading=plain id=introduction>Introduction</h2>
+Donec mollis pretium dignissim. Vestibulum aliquet magna in felis ultrices porttitor. Mauris lacus augue, finibus eu nulla nec, porta tempus metus. Etiam dictum maximus mattis. Praesent nec dolor pharetra nunc euismod aliquam non nec ante. Praesent tristique odio scelerisque rhoncus cursus. Aenean molestie velit metus.
 
-This is a project where you can take your existing plain semantic HTML and convert it to authentic looking RFC documents.
-If you ever wonder what the underlying HTML looks like, feel free to at any point check the source of this page. Everything here is generated from a Markdown document ([source](#)), with very little inline HTML.
+- Aenean egestas pellentesque mauris.
 
-<div class=has>
-  <p>Before reading on, please take a moment to set your preferences. Your browser must support the CSS function <code>:has(…)</code>.</p>
-  <p>
-    <label><input type=checkbox name=dark-mode checked> <code>color-scheme: dark;</code></label><br>
-    <label><input type=checkbox name=justify> <code>text-align: justify;</code></label><br>
-    <label><input type=checkbox name=extra> extra custom css</label>
-  </p>
-  <p>Settings like these do not exist even in the HTML versions of RFCs, but they are a nice addition to reading, in my opinion.</p>
-</div>
+- Eget volutpat lorem accumsan vitae.
 
-<nav data-rfc-toc>
-  <h2 data-rfc-heading=plain id=table-of-contents>Table of Contents</h2>
+- Proin mollis sit amet felis vitae ullamcorper.
 
-1. [1.](#features) Features
-    1. [1.1.](#customizability) Customizability
-    1. [1.2.](#headings) Headings
-    1. [1.3.](#lists) Lists
-        1. [1.3.1.](#description-lists) Description lists
-    1. [1.4.](#sections) Sections
-    1. todo \...
+Integer vitae mollis libero. In commodo tristique nisl vel tincidunt. Quisque lobortis eros in quam mattis egestas.
 
-</nav>
-
-## Features
-> Eat your own dog food ([explanation][dogfooding])
-
-This entire document both explains and shows RFC-CSS. Everything is written in Markdown and converted to HTML.
-
-[dogfooding]: https://en.wiktionary.org/wiki/eat_one%27s_own_dog_food
-
-### Customizability
-Some features can be modified with custom css rules. because css rules are scoped we could theoreticall change them per document, or per element.
-
-My suggestion is to set these variables globally to ensure a consisten looking document. these are the available rules:
-
-<dl style="--rfc-term-width: 23ch;">
-  <dt><code>--rfc-heading-spacing</code></dt>
-  <dd>Spacing between the heading and the numbering of the heading.</dd>
-
-  <dt><code>--rfc-term-width</code></dt>
-  <dd>Minimum width of terms in description lists.</dd>
-
-  <dt><code>--rfc-list-marker</code></dt>
-  <dd>String representing how lists should be displayed. Commonly one letter, followed by two spaces.</dd>
-
-  <dt><code>--rfc-content-indentation</code></dt>
-  <dd>Spacing between the edge of the document and the main content (paragraphs, lists, etc).</dd>
-</dl>
-
-you would apply these rules with CSS like so:
-```
-/* style.css */
-
-.special-heading {
-  --rfc-heading-spacing: 2ch;
-}
-```
-or directly inline html
-```
-<h2 style="--rfc-heading-spacing: 2ch;">My Special Heading</h2>
-```
-
-<h3 data-rfc-heading=counter id=headings>Headings</h3>
-
-Auto numbering of headings can be enabled by applying the attribute `data-rfc-heading=counter` to any of the headings' parents, or the heading itself.
-
-This is not enabled by default, because I would not use them that way. However, this article has auto numbering enabled.
-
-Any headings with the attribute `data-rfc-heading=plain` will be both un-numbered and not bolded, as well as not count towards the heading numbering.
-
-```
-<h2 data-rfc-heading=plain id=introduction>Introduction</h2>
-
-<h3 data-rfc-heading=counter id=headings>Headings</h3>
-```
-
-<p>
-  <script>
-    function setCustomHeadingSpacing(spacing) {
-      const style = '--rfc-heading-spacing: ' + spacing + 'ch;'
-      document.getElementById('headings').style = style
-      document.querySelector('output[name=heading-spacing]').innerHTML = `<code>${style}</code>`
-    }
-  </script>
-  <strong>Demo</strong>:
-  <label>interactive heading numbering spacing:<br>
-    <input type=range min=0 max=4 value=1 oninput="setCustomHeadingSpacing(this.value)">
-  </label>
-  <output name=heading-spacing><code>--rfc-heading-spacing: 1ch;</code></output>
-</p>
-
-
-### Lists
-Following conventions from RFCs, unordered lists use the letter 'o' as marker. Not all follow this convention (eg. [RFC9311](https://datatracker.ietf.org/doc/html/rfc9311)), but from my own experiences, most do. Some example RFCs which follow this convention:
-
-- [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)
-
-- [RFC8174](https://datatracker.ietf.org/doc/html/rfc8174)
-
-
-
-The marker can be modified with the variable `--rfc-list-marker`.
-
-```
-ul.my-list {
-  --rfc-list-marker: '-  ';
-}
-```
-
-becomes
-
-<ul style="--rfc-list-marker: '-  ';">
-  <li>test
-  <li>test2
+<ul style="--rfc-list-marker: '*  '">
+    <li>Proin volutpat vitae eros nec rutrum.</li>
+    <li>Vitae ullamcorper lacus, non suscipit ante.</li>
+    <li>Integer rhoncus, turpis a vulputate vulputate.</li>
+    <li>Diam felis vehicula lorem, vitae hendrerit mauris ante et odio.</li>
 </ul>
 
-The spacing between items is determined by the content in the `<li>`-tags. Because of how markdown works, putting blank rows between items causes the text to be wrapped in `<p>`-tags.
+## Proin in faucibus purus, in blandit mauris
 
-#### Description lists
+In vulputate sem neque, vitae fermentum nisi faucibus in. Nunc placerat ex in rutrum fermentum.
 
-<blockquote cite=https://theportalwiki.com/wiki/Cave_Johnson_voice_lines#1982>
-  <p>When life gives you lemons, [...] make life take the lemons back.</p>
-</blockquote>
+<figure>
+    <blockquote><p>Donec sit amet metus nec odio finibus commodo. Fusce rutrum eu nibh vitae cursus. Vivamus ut nulla nec mi feugiat semper id sit amet quam.</p></blockquote>
+    <figcaption>In id venenatis leo, <cite><a href="">Sed id purus libero</a></cite></figcaption>
+</figure>
 
-The "description list" is, in my opinion, the most underrated list. It is perfect when you want to clearly (and semantically) describe a term. Unfortunately Markdown does not support description lists, so they will have to be written entirely in HTML.
+Sed enim enim, tempor sit amet placerat sed, aliquet quis elit. Nunc mollis nec purus ac sagittis. Praesent volutpat enim vestibulum quam suscipit, sed commodo ante convallis. Fusce eu consectetur odio. Integer aliquet viverra dolor id efficitur. Proin eget nibh vel orci tincidunt laoreet. Integer vulputate est vehicula tempor lacinia. Nullam consequat ac lacus sed sodales. In non metus sodales nulla aliquet ultricies. Maecenas eu sapien libero. Nunc in pharetra dui. Proin eget fermentum augue, id semper orci. Quisque condimentum arcu non urna egestas, sed gravida tortor finibus. Nulla ullamcorper nunc eu nibh pellentesque, vel convallis est sagittis. Proin volutpat dignissim velit, quis bibendum felis placerat ac. Donec fringilla quis risus sit amet efficitur.
 
-Wrapping each "group" in a `<div>`-tag creates a visual style commonly found in RFCs when defining terms.
+| Nam vulputate | Aliquam purus | At suscipit |
+|---|---|---|
+| 0 | Fringilla at urna | Finibus sagittis. |
+| 1 | Consectetu | Sapien |
+| 2 | Consectetu | Sapien |
+| 3 | Consectetu | Sapien |
 
-Example:
+Aliquam velit turpis, iaculis pretium posuere a, sodales sed sapien.
 
 <dl>
-  <div>
-    <dt>term</dt>
-    <dd>The "term" used to name thing that is being described</dd>
-  </div>
-  <div>
-    <dt>description</dt>
-    <dd>An explanation of what the term is, placed adjecant to the term. The HTML specification from <a href=https://www.w3.org/MarkUp/HTMLPlus/htmlplus_34.html>1993</a> calls this a "definition", but the current HTML specification <a href=https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element>WHATWG</a> calls this "description"</dd>
-  </div>
-  <div class=has>
-    <dt>layout</dt>
-    <dd>To visualize the layout, you can use this handy toggle to see the layout. <label>Show layout: <input type=checkbox name=layout></label></dd>
-  </div>
+    <dt>Quisque</dt>
+    <dd>odio felis, consequat dignissim felis id, feugiat efficitur sem.</dd>
+    <dt>Donec</dt>
+    <dd>ac sagittis dolor</dd>
+    <dt>In dolor</dt>
+    <dd>tincidunt vel mattis vel, convallis non erat.</dd>
 </dl>
 
-Leaving the terms and descriptions "unwrapped" will visuall look different, while still keeping the same semantic meaning as in the list above:
+Maecenas euismod ligula eu erat lobortis semper. In suscipit laoreet diam, eu convallis neque mollis sed. Pellentesque egestas bibendum erat, at faucibus lacus maximus quis.
 
-<p>
-  <script>
-    function setCustomTermWidth(width) {
-      const style = '--rfc-term-width: ' + width + 'ch;'
-      document.getElementById('demo-term-width').style = style
-      document.querySelector('output[name=term-width]').innerHTML = `<code>${style}</code>`
-    }
-  </script>
-  <strong>Demo</strong>:
-  <label>
-    interactive term size:<br>
-    <input type=range min=0 max=20 value=12 oninput="setCustomTermWidth(this.value)">
-  </label>
-  <output name=term-width>--rfc-term-width: 12ch;</output>
-</p>
-<dl id=demo-term-width>
-  <dt>demo</dt>
-  <dd>This is an interactive demo of the description list, and modified with the CSS variable <code>--rfc-term-width</code>. Drag the slider to change the width of the terms.</dd>
-  <dd>The change is purely visual.</dd>
-  <dt>dynamic</dt>
-  <dd>Try moving the slider to about 6ch, and see this text gets placed underneath the term "dynamic".</dd>
-  <dd>If you move it back to 12ch, the term and the beginning of this text gets lined up again.</dd>
-  <dd>Regardless what you set the width for the term, or how it looks, the semantic meaning of the document is preserved. Everything here can be read by screen readers.</dd>
-
-
-  <script>
-    // setting <input> size acts different on Firefox and Chromium. This fixes this.
-
-    const isFirefox = typeof InstallTrigger !== 'undefined'
-    const inputSizeDelta = isFirefox ? 1 : 0
-
-    function setInputSize(input) {
-      input.size = 15 + inputSizeDelta
-    }
-
-    function setInputWidth(input) {
-      input.size = Math.max(input.value.length - 1 + inputSizeDelta, 1)
-    }
-
-    // document onload event
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const input = document.getElementById('demo-dl-term-width')      
-      setInputSize(input)
-      input.addEventListener('input', () => setInputWidth(input))
-    })
-  </script>
-  <dt><input id=demo-dl-term-width type=text size=15 value="description list"></dt>
-  <dd>
-    You can modify the this term "description list" to see how it affects this text.
-    <div class=has><br><label>Show layout: <input type=checkbox name=layout></label>
-  </dd>
+<dl>
+    <div>
+        <dt>Quisque</dt>
+        <dd>odio felis, consequat dignissim felis id, feugiat efficitur sem. Donec sagittis dolor</dd>
+    </div>
+    <div>
+        <dt>In dolor</dt>
+        <dd>tincidunt vel mattis vel, convallis non erat. Sed sed enim eu ipsum placerat facilisis sit amet gravida libero. Nam maximus risus a turpis pharetra, ac commodo odio varius.</dd>
+    </div>
 </dl>
 
-### Sections
-Sometimes you need show off some text indented. Unfortunately there is no appropriate Markdown alternative for this, so the `<section>`-tag is used.
+Quisque lacinia magna sem, ut semper ipsum fringilla non. Fusce vehicula dictum risus vitae dapibus. Quisque sed dolor a arcu suscipit gravida a at dui. Ut imperdiet lacinia nunc eu efficitur. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
-<section>
-  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code>-tag is that no Markdown can be used within, and needs to be entirely written (and escaped properly) in HTML.</p>
-</section>
+## Aliquam eleifend ante arcu
 
-For instance, that note was written as
-```
-<section>
-  <p><strong>Note</strong>: The side-effect of using the <code>&lt;section&gt;</code>-tag is that no Markdown can be used within, and needs to be entirely written (and escaped properly) in HTML.</p>
-</section>
-```
+### In consectetur dolor cursus in.
+Praesent vel sem felis. Donec augue magna, sagittis ut leo sed, lacinia dictum dolor. Curabitur eleifend aliquet velit, ac viverra ipsum venenatis sit amet. Cras enim arcu, lacinia vitae bibendum viverra, tempus non nunc. Proin iaculis mollis sapien, eu bibendum enim consequat at.
 
-### Tables
-
-Tables are a real bummer. This is the best I can do. Works both stand-alone and wrapped in `<figure>`-tag.
-
-<figure>
-
-| Feature | Difficulty |
-|---|---|
-| Description lists | Very annoying and time-consuming  |
-| Custom CSS rules | Simple and straight forward |
-| Tables | Somewhat hard, feature limited |
-| Images | Not hard at all |
-
-<figcaption>
-<p>Feature difficulty</p>
-</figcaption>
-</figure>
-
-## Additional
-Some features require additional efforts, but they look cool.
-
-### Navigation menu
-At the top of this page you can find the nav menu, which leads to other parts of my page. That is nothing more than a list in a navigation element. You can look at the `<nav>`-tag by right-clicking it and selecting "Inspect element" or similar.
-
-Adding an additional link would be nothing more than to add another list item.
-
-```
-<li><a href="…">…</a></li>
-```
-
-### Images and / in figures
-
-The entire document is based on a 15px tall line height. However, images defy that rule. For instance, an image could be 307px tall, which would offset the rest of the document by 7px.
-
-Only small image:
-
-![kitten](https://placekitten.com/200/200)
-
-Image in `<figure>`-tag with caption:
-
-<figure>
-  <img alt="cute kitten" src="https://placekitten.com/600/265">
-  <figcaption>Cute kitten</figcaption>
-</figure>
-
-Images provided by [placekitten](https://placekitten.com).
+Quisque vestibulum imperdiet rhoncus. Sed pellentesque sodales erat vel ultrices. Donec nec massa a erat eleifend mattis. Sed eu velit eget purus aliquet tempor et a urna. Nulla blandit ut enim ac venenatis. Donec eget egestas enim, id semper neque.
 
 
-## Weaknesses
-I strive to have a 1:1 stylesheet to look like a RFC document.
+1. Donec eget rhoncus tellus.
 
-However, there are a couple smaller things which I do now know how to emulate / fix with pure CSS.
+1. Nullam quis nulla accumsan, tincidunt lorem a, pulvinar lectus.
 
-### Table of Contents is a hack
-The table of contents (ToC) needs to be manually written out, or possibly generated with JavaScript. There is really no way to generate an entire ToC with just CSS.
+1. Integer vel nisi id ante laoreet luctus.
+    1. Ut eget arcu eget orci varius ultrices.
 
-I think the easiest approach would be to generate the ToC with JavaScript during runtime, since the DOM is somewhat easy to work with.
+    1. Nulla sed eleifend arcu, sed venenatis urna.
 
-### Double spaces
+1. Quisque luctus nulla nec massa ornare consequat.
 
-<p style="white-space: pre-wrap">I do not understand why, but RFCs are written with double spaces after a sentence.  As far as I know, there is no way with pure CSS to enforce this.  If you write HTML and set the CSS rule `white-space: pre` or similar you can keep the whitespace.  This paragraph is using that rule.</p>
+### Duis rutrum porttitor maximus.
+Donec vitae tincidunt tellus. Maecenas sodales, nunc vel scelerisque euismod, ligula augue semper eros, a malesuada tortor mi eu nibh. Suspendisse mattis, elit et sodales pharetra, leo purus volutpat urna, ut efficitur diam risus vel dui. Integer nec condimentum quam. Etiam viverra tortor nec ipsum accumsan euismod. Sed et pretium ante. Sed eu lacinia nulla, vitae faucibus tortor. Fusce luctus ipsum eu est placerat dignissim. Phasellus cursus lorem velit, in malesuada lectus lobortis nec. Ut maximus, mauris vulputate tincidunt condimentum, est tellus congue lectus, eu mattis lorem leo id massa. Mauris bibendum imperdiet nisi, id mollis nunc dapibus id. Praesent diam magna, pellentesque eu diam vel, euismod bibendum libero.
 
-However, this is a Markdown document and extra whitespace gets trimmed away, unless you wrap the text is written in a `<p style="white-space: pre-wrap">`-tag, for instance.
-
-If there is a CSS rule which allows for doubly spaces after periods in tags, please [leave a PR][github].
-
-[github]: https://github.com/vladdeSV/rfc-css
-
-### Inline whitespace shenanigans
-I've noticed that `inline` elements (`display: inline;`) depend on the whitespace in the HTML document. This causes issues when I want a specified amount of character spacing between elements. The following snippets will display differently in a `<dl>`-tag:
-
-- `<dt>foo</dt><dd>bar</dd>`
-- `<dt>foo</dt> <dd>bar</dd>`, or any form of whitespace between
-
-### Too centered titles
-For titles which are centered, it becomes a problem when there are a odd number of characters in the title, as a there will be a one character misalignment in textdoucments, but CSS just puts it in the exact middle.
-
-## Why
-
-- serious documentation at work
-
-- common markdown to html feel lacking – unprofessional
-
-- i like rfc documents, focus is entirely on content
-
-## The Truth
-If you are extra curious, I offer you this single use button to remove a single attribute from the parent node.
-
-The button will:
-
-1. Remove the `data-rfc` attribute from this document
-2. Reset the margin `<body>`-tag
-3. Disable itself
-
-This button can show you the page in its entierty and that in the end its only HTML and nothing more.
-
-<section>
-  <p><strong>Note</strong>: You will need to refresh the page in order to reset the styling of this page.</p>
-</section>
+## Aenean finibus commodo eros eu accumsan.
+Donec et est tincidunt, mattis odio non, euismod dolor. Duis ornare massa eget viverra imperdiet. Sed consequat, tortor sed vehicula commodo, dui purus egestas velit, sed sodales dolor massa eu nisl.
 
 <p>
-  <label>
-    Remove <code>data-rfc</code> attribute: <input type=button value=remove onclick="document.querySelector('[data-rfc]').removeAttribute('data-rfc'); document.body.style.setProperty('margin', '8px'); this.setAttribute('disabled', null)" style="background: orangered; color: white;" title="red pill">
-  <label>
+    <label>Input <input type=text></label>
 </p>
+
+<p>
+    <label>Slider <input type=range></label>
+</p>
+
+<p>
+    <label>Checkbox <input type=checkbox></label>
+</p>
+
+Maecenas imperdiet iaculis pellentesque. Ut suscipit quis enim volutpat elementum. Suspendisse feugiat justo ut justo sodales sodales. Curabitur et rhoncus quam, non faucibus lectus.
