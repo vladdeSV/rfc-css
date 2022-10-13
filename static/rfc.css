@@ -104,13 +104,12 @@
   padding-left: var(--rfc-content-indentation)
 }
 
-[data-rfc] ol li {
-  padding-left: 1ch;
+[data-rfc] ul {
+    list-style: var(--rfc-list-marker);
 }
 
-[data-rfc] ul li::marker {
-  content: var(--rfc-list-marker);
-  white-space: pre;
+[data-rfc] ol li {
+  padding-left: 1ch;
 }
 
 [data-rfc] input {
