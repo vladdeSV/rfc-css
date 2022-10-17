@@ -145,7 +145,6 @@
 }
 
 /* heading counter */
-
 [data-rfc] h1 {
   counter-reset: rfc-h2 rfc-h3 rfc-h4 rfc-h5 rfc-h6;
 }
@@ -290,7 +289,6 @@
 }
 
 /* navigation */
-
 [data-rfc] nav[data-rfc-navigation] {
   text-align: right;
   background-color: #eee;
@@ -331,8 +329,6 @@
   }
 
 }
-
-/* misc */
 
 /* images */
 [data-rfc] img {
