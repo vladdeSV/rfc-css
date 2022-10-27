@@ -81,15 +81,15 @@
 }
 
 [data-rfc] pre {
-    border-radius: 0.5ch;
-    display: inline-block;
+  border-radius: 0.5ch;
+  display: inline-block;
 
-    --pre-padding: 1ch;
-    padding: var(--pre-padding);
-    margin-top: calc(-1 * var(--pre-padding));
-    margin-bottom: calc(-1 * var(--pre-padding));
-    margin-left: calc(var(--rfc-content-indentation) * 2 - var(--pre-padding));
-    margin-right: calc(-1 * var(--pre-padding));
+  --pre-padding: 1ch;
+  padding: var(--pre-padding);
+  margin-top: calc(-1 * var(--pre-padding));
+  margin-bottom: calc(-1 * var(--pre-padding));
+  margin-left: calc(var(--rfc-content-indentation) * 2 - var(--pre-padding));
+  margin-right: calc(-1 * var(--pre-padding));
 }
 
 [data-rfc] code {
@@ -105,7 +105,7 @@
 }
 
 [data-rfc] ul {
-    list-style: var(--rfc-list-marker);
+  list-style: var(--rfc-list-marker);
 }
 
 [data-rfc] ol li {
