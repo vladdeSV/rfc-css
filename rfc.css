@@ -50,7 +50,7 @@
 }
 
 /* common elements */
-[data-rfc] :is(p, dl, pre, figure, section, ul, ol) {
+[data-rfc] :is(p, dl, pre, figure, section, aside, ul, ol) {
   margin: 15px 0;
   margin-left: var(--rfc-content-indentation);
 }
