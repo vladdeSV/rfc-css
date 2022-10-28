@@ -402,6 +402,9 @@
   font-size: 1em;
 }
 
+[data-rfc] table caption {
+  margin-top: 15px;
+  caption-side: bottom;
 }
 
 [data-rfc] :is(td, th) {
