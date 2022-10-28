@@ -336,7 +336,9 @@
 }
 
 [data-rfc] figcaption {
+  margin: 15px;
   text-align: center;
+  margin-left: var(--rfc-content-indentation)
 }
 
 /* keep whitespace */
