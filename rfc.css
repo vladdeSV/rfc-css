@@ -374,21 +374,6 @@
   content: unset;
 }
 
-/* headings hack */
-[data-rfc] :is(h1, h2, h3, h4, h5, h6):empty {
-  display: none;
-}
-
-[data-rfc] :is(h1, h2, h3, h4, h5, h6):empty+ :is(h1, h2, h3, h4, h5, h6) {
-  font-weight: normal;
-  counter-increment: unset;
-  counter-reset: unset;
-}
-
-[data-rfc] :is(h1, h2, h3, h4, h5, h6):empty+ :is(h1, h2, h3, h4, h5, h6)::before {
-  content: none;
-}
-
 /* tables */
 [data-rfc] figure {
   display: inline-block;
