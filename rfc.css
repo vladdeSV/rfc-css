@@ -177,35 +177,40 @@
   [data-rfc] h2[data-rfc-heading=counter],
   [data-rfc][data-rfc-heading=counter] h2,
 )::before {
-  content: counter(rfc-h2) ".";
+  content: counter(rfc-h2) ". ";
+  display: inline-block;
 }
 
 :is([data-rfc] [data-rfc-heading=counter] h3,
   [data-rfc] h3[data-rfc-heading=counter],
   [data-rfc][data-rfc-heading=counter] h3,
 )::before {
-  content: counter(rfc-h2) "." counter(rfc-h3) ".";
+  content: counter(rfc-h2) "." counter(rfc-h3) ". ";
+  display: inline-block;
 }
 
 :is([data-rfc] [data-rfc-heading=counter] h4,
   [data-rfc] h4[data-rfc-heading=counter],
   [data-rfc][data-rfc-heading=counter] h4,
 )::before {
-  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) ".";
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) ". ";
+  display: inline-block;
 }
 
 :is([data-rfc] [data-rfc-heading=counter] h5,
   [data-rfc] h5[data-rfc-heading=counter],
   [data-rfc][data-rfc-heading=counter] h5,
 )::before {
-  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) ".";
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) ". ";
+  display: inline-block;
 }
 
 :is([data-rfc] [data-rfc-heading=counter] h6,
   [data-rfc] h6[data-rfc-heading=counter],
   [data-rfc][data-rfc-heading=counter] h6,
 )::before {
-  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) "." counter(rfc-h6) ".";
+  content: counter(rfc-h2) "." counter(rfc-h3) "." counter(rfc-h4) "." counter(rfc-h5) "." counter(rfc-h6) ". ";
+  display: inline-block;
 }
 
 [data-rfc] :is(h1, h2, h3, h4, h5, h6)::before {
