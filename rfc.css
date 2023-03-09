@@ -5,12 +5,14 @@
   max-width: 72.05ch;
   font-size: 10pt;
   box-sizing: border-box;
-  line-height: 15px;
 
   --rfc-content-indentation: 3ch;
   --rfc-term-width: 12ch;
   --rfc-heading-spacing: 1ch;
   --rfc-list-marker: 'o  ';
+  --rfc-line-height: 15px;
+
+  line-height: var(--rfc-line-height);
 }
 
 /* screen is less than 600 px  remove margin */
@@ -38,7 +40,7 @@
   margin: 0;
   padding: 0;
 
-  margin: 15px 0;
+  margin: var(--rfc-line-height) 0;
 }
 
 [data-rfc] h1 {
@@ -51,7 +53,7 @@
 
 /* common elements */
 [data-rfc] :is(p, dl, pre, figure, section, aside, ul, ol) {
-  margin: 15px 0;
+  margin: var(--rfc-line-height) 0;
   margin-left: var(--rfc-content-indentation);
 }
 
@@ -113,7 +115,7 @@
 }
 
 [data-rfc] input {
-  height: 15px;
+  height: var(--rfc-line-height);
   margin: 0;
   padding: 0;
   vertical-align: middle;
@@ -138,7 +140,7 @@
 }
 
 [data-rfc] input[type=text] {
-  height: 15px;
+  height: var(--rfc-line-height);
   border-width: 1px;
   margin-top: -4px;
   margin-left: -1px;
@@ -242,7 +244,7 @@
   float: right;
   margin: 0;
   width: calc(100% - var(--rfc-term-width));
-  padding-bottom: 15px;
+  padding-bottom: var(--rfc-line-height);
   clear: right;
 }
 
@@ -261,7 +263,7 @@
 
 [data-rfc] dl>div {
   padding-left: var(--rfc-content-indentation);
-  margin-bottom: 15px;
+  margin-bottom: var(--rfc-line-height);
 }
 
 [data-rfc] dl>div:last-child {
@@ -297,7 +299,7 @@
 [data-rfc] nav[data-rfc-navigation] {
   text-align: right;
   background-color: #eee;
-  padding-bottom: 15px;
+  padding-bottom: var(--rfc-line-height);
 }
 
 [data-rfc] nav[data-rfc-navigation] ul {
@@ -307,7 +309,7 @@
   gap: 1em 1ch;
   padding-left: 0;
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: var(--rfc-line-height);
   text-align: left;
 }
 
@@ -352,7 +354,7 @@
 
 /* header */
 [data-rfc] header {
-  margin-bottom: 30px;
+  margin-bottom: calc(var(--rfc-line-height) * 2);
   max-width: 72ch;
 }
 
@@ -406,7 +408,7 @@
 }
 
 [data-rfc] th {
-  padding-bottom: 15px;
+  padding-bottom: var(--rfc-line-height);
   overflow: hidden;
   position: relative;
   vertical-align: bottom;
