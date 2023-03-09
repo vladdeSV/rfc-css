@@ -248,7 +248,9 @@
   padding-right: var(--rfc-heading-spacing);
 }
 
-[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain] {
+[data-rfc] :is(h1, h2, h3, h4, h5, h6)[data-rfc-heading=plain],
+[data-rfc][data-rfc-heading=plain] :is(h1, h2, h3, h4, h5, h6),
+[data-rfc] [data-rfc-heading=plain] :is(h1, h2, h3, h4, h5, h6) {
   font-weight: normal;
   counter-increment: unset;
   counter-reset: unset;
