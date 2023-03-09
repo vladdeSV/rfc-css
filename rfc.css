@@ -115,6 +115,10 @@
   padding-left: 1ch;
 }
 
+[data-rfc] ul li::marker {
+  white-space: pre;
+}
+
 [data-rfc] input {
   height: var(--rfc-line-height);
   margin: 0;
@@ -145,6 +149,10 @@
   border-width: 1px;
   margin-top: -4px;
   margin-left: -1px;
+}
+
+[data-rfc] address {
+  font-style: normal;
 }
 
 /* heading counter */
@@ -311,6 +319,7 @@
   padding-left: 0;
   margin: 0;
   margin-bottom: var(--rfc-line-height);
+  height: var(--rfc-line-height);
   text-align: left;
 }
 
@@ -348,6 +357,10 @@
   margin-left: var(--rfc-content-indentation)
 }
 
+[data-rfc] figcaption>p {
+  margin-left: 0;
+}
+
 /* keep whitespace */
 [data-rfc-ws] p {
   white-space: pre-wrap;
@@ -373,6 +386,9 @@
 
 [data-rfc] header[data-rfc-header] ul:nth-of-type(2) {
   text-align: right;
+  margin-left: 2ch;
+  flex-shrink: 0;
+  max-width: 50%;
 }
 
 [data-rfc] header[data-rfc-header] ul li {
@@ -413,6 +429,7 @@
   overflow: hidden;
   position: relative;
   vertical-align: bottom;
+  font-weight: normal;
 }
 
 [data-rfc] th::after {
