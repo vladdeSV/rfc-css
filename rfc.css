@@ -45,6 +45,7 @@
 
 [data-rfc] h1 {
   text-align: center;
+  white-space: pre;
 }
 
 [data-rfc] h6 {
