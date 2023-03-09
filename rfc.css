@@ -167,6 +167,10 @@
   margin-left: -1px;
 }
 
+[data-rfc] span[data-rfc-double-space] {
+  margin-right: 1ch;
+}
+
 [data-rfc] address {
   font-style: normal;
 }
