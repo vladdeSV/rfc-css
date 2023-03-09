@@ -354,32 +354,32 @@
 }
 
 /* header */
-[data-rfc] header {
+[data-rfc] header[data-rfc-header] {
   margin-bottom: calc(var(--rfc-line-height) * 2);
   max-width: 72ch;
 }
 
-[data-rfc] header {
+[data-rfc] header[data-rfc-header] {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-[data-rfc] header ul {
+[data-rfc] header[data-rfc-header] ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-[data-rfc] header ul:nth-of-type(2) {
+[data-rfc] header[data-rfc-header] ul:nth-of-type(2) {
   text-align: right;
 }
 
-[data-rfc] header ul li {
+[data-rfc] header[data-rfc-header] ul li {
   margin: 0;
 }
 
-[data-rfc] header ul li::marker {
+[data-rfc] header[data-rfc-header] ul li::marker {
   content: unset;
 }
 
